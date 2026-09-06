@@ -1,0 +1,359 @@
+
+
+body {
+    display: block; 
+    min-height: 100vh; 
+    padding: 20px;
+    background-color: #f7f4e9; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #444;
+}
+
+.container {
+    width: 90vw; 
+    max-width: 1400px; 
+    margin: 30px auto; 
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 16px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+    box-sizing: border-box;
+    display: block; 
+    height: auto; 
+    overflow-y: visible; 
+}
+
+/* BAŞLIKLAR VE HİZALAMA */
+h1, h2, h3, h4 {
+    color: #4a6058;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+h3 { /* Yorumlar Başlığı */
+    text-align: left;
+    margin-top: 40px;
+    border-bottom: 2px solid #e6e3d7; 
+    padding-bottom: 5px;
+}
+h4 { /* Yorum Yazın Başlığı */
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* İÇERİK MERKEZLEME (Ana Sayfa Post Listesi ve Detaylar)  */
+.content-section, .post {
+    width: 100%;
+    max-width: 800px; /* Okunabilirlik için genel içerik genişliği */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ 
+/* 📝 POST DETAY SAYFASI VE OKUNABİLİRLİK */
+
+/* Metin İçeriği (Yatay yayılımı kısıtlar ve ortalar) */
+.post-content-body {
+    /* Okunabilirlik için İdeal Sütun Genişliği */
+    max-width: 700px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    font-size: 1.05em; /* Yazıyı biraz büyüt */
+    line-height: 1.7; /* Satır aralığını artır (Akıcılık için KRİTİK) */
+    text-align: justify; /* Metni iki yana yasla (Dergivari görünüm) */
+    color: #333; 
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Post Detay Başlık Alanı (Yazar, Tarih, Kategori) */
+.post-header-details {
+    padding-bottom: 15px; 
+    border-bottom: 1px solid #e6e3d7; /* Yumuşak ayırıcı çizgi */
+    margin-bottom: 30px; 
+}
+
+/* Meta Bilgiler (Yazar, Tarih, Kategori ) */
+.meta-info {
+    color: #5d6d5c; 
+    font-size: 0.95em;
+    margin-right: 20px; 
+    display: inline-block; 
+}
+
+
+/* ETİKETLER */
+
+
+.post-tags span {
+    background-color: #fcfbf6; 
+    color: #4a6058;
+    padding: 3px 8px;
+    border-radius: 12px; 
+    margin-right: 8px;
+    font-size: 0.85em;
+    display: inline-block;
+    border: 1px solid #c9c1ac; 
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.post-tags span:hover { 
+    background-color: #f0f0e8; 
+}
+
+
+/* 💬 YORUMLAR */
+
+/* Yorum Formu Arka Planı (Sayfadan ayırır) */
+.comment-form-section {
+    background-color: #f7f4e9; 
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border: 1px solid #e6e3d7;
+}
+
+.comment-list p {
+    line-height: 1.5;
+}
+
+
+/*FORMLAR VE GİRİŞ ALANLARI */
+
+
+form {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px; /* Elemanlar arası boşluk */
+}
+
+form label {
+    display: block; 
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #4a6058; 
+}
+
+/* INPUT VE TEXTAREA  */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100% !important;
+    padding: 16px 18px !important;
+    border: 1.5px solid #c9c1ac !important;
+    background-color: #fcfbf6 !important;
+    border-radius: 10px !important;
+    font-size: 16px;
+    box-sizing: border-box !important; /* Genişliğin taşmasını önler */
+    font-family: inherit;
+    color: #444;
+}
+
+.select-wrapper {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 55px; 
+    background-color: #fcfbf6; 
+    border: 1.5px solid #c9c1ac; 
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Özel Ok Simgesi */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2020%2020'%3E%3Cpath%20fill='%234a6058'%20d='M9.293%2012.95l.707.707L15.657%208l-1.414-1.414L10%2010.828%205.757%206.586%204.343%208z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 15px center !important;
+    background-size: 15px !important;
+}
+
+/* SELECT  */
+select {
+    width: 100% !important;
+    height: 100% !important;
+    cursor: pointer;
+    color: #444 !important;
+    font-size: 16px !important;
+    border: none !important;
+    background: transparent !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    outline: none !important;
+    padding: 0 40px 0 18px !important;
+}
+
+/* Dropdown listesi açıldığında renk uyumu */
+select option {
+    background-color: #fcfbf6;
+    color: #444;
+}
+
+/* Odaklanma (Focus) Stilleri */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus { 
+    border-color: #8a9e88 !important; 
+    box-shadow: 0 0 6px #8a9e88a6;
+    outline: none;
+}
+
+
+/* ➡️ BUTONLAR, LİNKLER, NAVİGASYON */
+
+button,
+input[type="submit"] {
+    background-color: #8a9e88; 
+    color: white;
+    border: none;
+    padding: 16px 22px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 20px; 
+    box-sizing: border-box;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #72876f; 
+    box-shadow: 0 0 10px #72876fcc;
+}
+
+a {
+    text-decoration: none;
+    color: #72876f; /* Link Rengi */
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #8a9e88;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #72876f; 
+}
+
+nav {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+nav a {
+    margin: 0 12px;
+    color: #4a6058;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #f7f4e9; 
+    color: #444;
+}
+
+/*TABLOLAR (Top Users)  */
+
+.top-users-table {
+    width: 100%; 
+    max-width: 800px; /* Diğer içeriklerle aynı hizada durması için */
+    margin: 30px auto; /* Üstten-alttan 30px, sağdan-soldan OTOMATİK (Ortalama sağlar) */
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.top-users-table th {
+    background-color: #e6e3d7; 
+    color: #4a6058;
+    padding: 15px;
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 2px solid #c9c1ac;
+}
+
+.top-users-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0e8;
+    color: #555;
+}
+
+/* Satırların üzerine gelince renk değişimi */
+.top-users-table tr:hover {
+    background-color: #fcfbf6;
+}
+
+/* Tablo içindeki kullanıcı linkleri */
+.top-users-table td a {
+    color: #72876f;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.top-users-table td a:hover {
+    text-decoration: underline;
+}
+.category-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+.category-nav a {
+    padding: 8px 15px;
+    background: #fcfbf6;
+    border: 1.5px solid #c9c1ac;
+    border-radius: 20px;
+    color: #4a6058;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.category-nav a.active, .category-nav a:hover {
+    background: #8a9e88;
+    color: white;
+    border-color: #8a9e88;
+}
+.category-badge {
+    font-size: 0.75em;
+    background: #e6e3d7;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #4a6058;
+    font-weight: bold;
+}
+.inline-action { display: inline-block; margin: 0; padding: 0; box-shadow: none; background: none; }
+.inline-action button { width: auto; margin: 0; padding: 6px 10px; }
