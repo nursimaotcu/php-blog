@@ -1,6 +1,6 @@
 # PHP Blog — Kategori, Etiket ve Sosyal Etkileşim
 
-PHP ve MySQL ile geliştirilmiş ders projesi. Kullanıcılar yazı yayımlayabilir, yorum yapabilir, gönderileri beğenebilir ve birbirini takip edebilir. Bu depo, mevcut veritabanı projesinin kurulum ve güvenlik düzeltmeleri eklenmiş portföy sürümüdür.
+Veritabanı dersi için PHP ve MySQL kullanarak geliştirdiğim blog uygulaması. Kullanıcılar yazı paylaşabilir, yorum yapabilir, gönderileri beğenebilir ve birbirini takip edebilir. Projede ilişkisel veritabanı tasarımı, SQL sorguları ve kullanıcı işlemleri üzerine çalıştım.
 
 ## Özellikler
 
@@ -36,7 +36,7 @@ php -S localhost:8081
 
 4. `http://localhost:8081/register.php` adresinden kayıt olun. İkinci kullanıcı için ayrı bir tarayıcı profili veya gizli pencere kullanın.
 
-Eski SQL dökümü bu pakete alınmadı. Eski MD5 parola kayıtları taşınmaz; temiz veritabanında yeni kullanıcı oluşturulur.
+Kurulumdan sonra kayıt ekranından yeni kullanıcı oluşturabilirsiniz.
 
 ## Veri modeli
 
@@ -56,15 +56,9 @@ erDiagram
 
 Sorgularda PDO parametreleri, JOIN, alt sorgu ve `COUNT(DISTINCT ...)` kullanılır. İlişkiler InnoDB yabancı anahtarlarıyla korunur; gönderi silinince ilişkili yorum, beğeni ve etiket bağlantıları temizlenir.
 
-## Portföy hazırlığında yapılan değişiklikler
+## Uygulama yapısı
 
-- Daha kapsamlı `veritabanıproje` sürümü temel alındı; `phpOdev` kopyasıyla dosya bazında karşılaştırıldı.
-- MD5 yerine `password_hash` / `password_verify`; girişte oturum kimliği yenileme.
-- Oturum kontrolü HTML şablonundan ayrıldı; yönlendirme öncesi çıktı hataları giderildi.
-- Silme, beğeni, takip ve çıkış POST formlarına taşındı; POST isteklerine CSRF kontrolü eklendi.
-- Eksik tabloları tamamlayan, kişisel kayıt içermeyen kurulum şeması hazırlandı.
-- Etiketli gönderi oluşturma işlemi transaction içine alındı.
-- Veritabanı ayarları kaynak kodundan ayrıldı; hata ayrıntıları kullanıcıya gösterilmez.
+Parolalar `password_hash` ile saklanır ve `password_verify` ile kontrol edilir. Girişte oturum kimliği yenilenir. Veri değiştiren işlemler POST kullanır ve CSRF kontrolünden geçer. Etiketli gönderi oluşturma işlemi transaction içinde yürütülür.
 
 ## Testler
 
@@ -82,5 +76,3 @@ Test; kayıt/giriş, yinelenen e-posta, hatalı parola, CSRF reddi, gönderi iş
 ## Bilinen sınırlar
 
 Sayfalama, arama, parola sıfırlama, e-posta doğrulama, hız sınırlama ve moderasyon yoktur. Gönderi düzenleme yalnızca başlık ve içeriği değiştirir; kategori/etiket düzenleme henüz yoktur. Mevcut çalışma yerel ders demosudur; genel erişime açık sunucuya dağıtım yapılmadı.
-
-GitHub profili: [nursimaotcu](https://github.com/nursimaotcu). Ders projesi ile portföy hazırlığında eklenen düzeltmeler yukarıda ayrı belirtilmiştir.
